@@ -67,7 +67,7 @@ Here are the classes in the dataset, as well as 10 random images from each:
 # Plot the images and labels using our helper-function.
 plot_images(images=images, cls_true=cls_true, smooth=False)
 ```
-<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/plot.PNG?raw=true" width="80%">
+<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/plot.PNG?raw=true" width="60%">
 
 ### Calculate transfer values using Inception model and store it in cache:
 ```
@@ -91,13 +91,13 @@ Above lines just show important functions for more detailes check [Notebook](htt
 ```
 transfer_values_reduced = pca.fit_transform(transfer_values)
 ```
-<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/pca.PNG?raw=true" width="70%">
+<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/pca.PNG?raw=true" width="60%">
 
 #### T-SNE:
 ```
 transfer_values_reduced = tsne.fit_transform(transfer_values_50d)
 ```
-<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/tsne.PNG?raw=true" width="70%">
+<img src="https://github.com/Pradnya1208/Transfer-Learning/blob/main/readme_files/tsne.PNG?raw=true" width="60%">
 
 
 ## Creating a new classifier in Tensorflow:
@@ -137,6 +137,7 @@ Create a variable for keeping track of the number of optimization iterations per
 global_step = tf.Variable(initial_value=0,
                           name='global_step', trainable=False)
 optimizer = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(loss, global_step)
+```
 
 ### 4. Classification accuracy:
 - The output of the network y_pred is an array with 10 elements. The class number is the index of the largest element in the array.
@@ -149,6 +150,7 @@ y_pred_cls = tf.argmax(y_pred, dimension=1)
 correct_prediction = tf.equal(y_pred_cls, y_true_cls)
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 ```
+
 ### 5. Tensorflow run:
 ```
 session = tf.Session()
@@ -194,7 +196,7 @@ Confusion Matrix:
 
 
 ## References:
-[Transfer Learning essentials](https://towardsdatascience.com/how-transfer-learning-can-be-a-blessing-in-deep-learning-models-fbc576dc42)
+[Transfer Learning essentials](https://towardsdatascience.com/how-transfer-learning-can-be-a-blessing-in-deep-learning-models-fbc576dc42)<br>
 [Transfer learning](https://www.youtube.com/watch?v=upfgTWrhkpg&list=PL9Hr9sNUjfsmEu1ZniY0XpHSzl5uihcXZ&index=16)
 ### Feedback
 
